@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>싱글 페이지 자유게시판</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 게시글 목록 -->
+        <div id="post-list" class="post-list">
+            <h1>자유게시판</h1>
+            <ul id="posts">
+                <!-- 게시글 목록이 JavaScript로 동적으로 추가됨 -->
+            </ul>
+        </div>
+
+        <!-- 개별 게시글 보기 -->
+        <div id="post-detail" class="post-detail" style="display: none;">
+            <button onclick="goBack()">← 돌아가기</button>
+            <h2 id="post-title"></h2>
+            <p id="post-content"></p>
+            <div id="disqus_thread"></div>
+        </div>
+    </div>
+
+    <!-- Disqus 코드 -->
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = currentPostId;
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://free-dwzrep60bz.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</body>
+</html>
